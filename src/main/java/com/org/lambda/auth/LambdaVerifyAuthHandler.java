@@ -20,8 +20,7 @@ public class LambdaVerifyAuthHandler implements RequestHandler<Map<String, Objec
         boolean isCorrect = expectedOtp != null && expectedOtp.equals(userAnswer);
         response.put("answerCorrect", isCorrect);
         event.put("response", response);
-        context.getLogger().log(String.format(
-                "Verify-Auth-Challenge | expected=%s, got=%s, ok=%s%n",
+        context.getLogger().log(String.format("Verify-Auth-Challenge | expected=%s, got=%s, ok=%s%n",
                 mask(expectedOtp), mask(userAnswer), isCorrect));
 
         return event;
